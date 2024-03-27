@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
+
+app.use(morgan("dev"));
 
 // routes
 const characterRoutes = require("./api/routes/character");
