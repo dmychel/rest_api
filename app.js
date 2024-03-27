@@ -1,10 +1,17 @@
 const express = require("express");
 const app = express();
 
-app.use((req, res, next) => {
+// routes
+const characterRoutes = require("./api/routes/character");
+const locationRoutes = require("./api/routes/location");
+
+app.get("/", (req, res) => {
   res.status(200).json({
-    message: "It works",
+    message: "connected to Yakuza API",
   });
 });
+
+app.use("/character", characterRoutes);
+app.use("/location", locationRoutes);
 
 module.exports = app;
