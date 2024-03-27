@@ -1,8 +1,14 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const { MongoClient } = require("mongodb");
+require("dotenv").config();
 
 app.use(morgan("dev"));
+
+// Replace the uri string with your connection string.
+const URI = process.env.DB_CONN;
+const client = new MongoClient(URI);
 
 // routes
 const characterRoutes = require("./api/routes/character");
