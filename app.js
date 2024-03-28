@@ -14,9 +14,12 @@ const locationRoutes = require("./api/routes/location");
 
 // Replace the uri string with your connection string.
 const URI = process.env.DB_CONN;
+const PORT = process.env.PORT
 
 // connect to database
 mongoose.connect(URI)
+  .then((result) => app.listen(PORT))
+  .catch((err) => console.log(err))
 
 // listen for requests
 app.get("/", (req, res) => {
