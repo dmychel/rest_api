@@ -12,14 +12,15 @@ require("dotenv").config();
 const characterRoutes = require("./api/routes/characters");
 const locationRoutes = require("./api/routes/locations");
 
-// Replace the uri string with your connection string.
+// env variables
 const URI = process.env.DB_CONN;
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
 
 // connect to database
-mongoose.connect(URI)
+mongoose
+  .connect(URI)
   .then((result) => app.listen(PORT))
-  .catch((err) => console.log(err))
+  .catch((err) => console.log(err));
 
 // listen for requests
 app.get("/", (req, res) => {
