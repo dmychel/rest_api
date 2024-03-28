@@ -9,8 +9,8 @@ app.use(morgan("dev"));
 require("dotenv").config();
 
 // routes
-const characterRoutes = require("./api/routes/character");
-const locationRoutes = require("./api/routes/location");
+const characterRoutes = require("./api/routes/characters");
+const locationRoutes = require("./api/routes/locations");
 
 // Replace the uri string with your connection string.
 const URI = process.env.DB_CONN;
@@ -28,8 +28,8 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/character", characterRoutes);
-app.use("/location", locationRoutes);
+app.use("/characters", characterRoutes);
+app.use("/locations", locationRoutes);
 
 // 404
 app.use((req, res) => {
