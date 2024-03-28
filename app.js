@@ -1,18 +1,20 @@
+// middleware
 const express = require("express");
-const app = express();
-const morgan = require("morgan");
 const { MongoClient } = require("mongodb");
-require("dotenv").config();
+const morgan = require("morgan");
 
+// use
+const app = express();
 app.use(morgan("dev"));
-
-// Replace the uri string with your connection string.
-const URI = process.env.DB_CONN;
-const client = new MongoClient(URI);
+require("dotenv").config();
 
 // routes
 const characterRoutes = require("./api/routes/character");
 const locationRoutes = require("./api/routes/location");
+
+// Replace the uri string with your connection string.
+const URI = process.env.DB_CONN;
+const client = new MongoClient(URI);
 
 // listen for requests
 app.get("/", (req, res) => {
