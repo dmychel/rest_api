@@ -1,5 +1,19 @@
+# get all characters
 GET http://localhost:3000/characters
 
 ###
 
-GET http://localhost:3000/characters/6604bfa6d8221596ad13db17f
+# get all locations
+GET http://localhost:3000/locations
+
+###
+
+# get a specific character
+GET http://localhost:3000/characters/6604bfa6d8221596ad13db17
+
+###
+
+#get a specific location
+GET http://localhost:3000/locations/6604c05dd8221596ad13db1a
+
+
