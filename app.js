@@ -1,7 +1,7 @@
 // middleware
 const express = require("express");
-const { MongoClient } = require("mongodb");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
 
 // use
 const app = express();
@@ -14,7 +14,9 @@ const locationRoutes = require("./api/routes/location");
 
 // Replace the uri string with your connection string.
 const URI = process.env.DB_CONN;
-const client = new MongoClient(URI);
+
+// connect to database
+mongoose.connect(URI)
 
 // listen for requests
 app.get("/", (req, res) => {
