@@ -1,18 +1,17 @@
 const express = require("express");
+const Location = require("../models/locationSchema");
+const { getAll, getOne } = require("../modules/getRequests");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.status(200).json({
-    message: "Handling GET request /location",
-  });
+router.get("/", async (req, res) => {
+  const allLocations = await getAll(req, res, Location);
+  res.json(allLocations);
 });
 
-router.get("/:locationId", (req, res) => {
-  const id = req.params.characterId;
-  res.status(200).json({
-    message: "you passed a location ID",
-  });
+router.get("/:id", async (req, res) => {
+  const location = await getOne(req, res, req.params.id, Location);
+  res.json(location);
 });
 
 module.exports = router;
