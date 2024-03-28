@@ -1,1 +1,5 @@
 GET http://localhost:3000/characters
+
+###
+
+GET http://localhost:3000/characters/6604bfa6d8221596ad13db17f
