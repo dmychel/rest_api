@@ -14,7 +14,7 @@ async function getAll(req, res, model) {
 async function getOne(req, res, id, model) {
   let item;
   try {
-    const item = await model.findById(id).then((result) => {
+    const item = await model.findOne({ item: Number(id) }).then((result) => {
       res.send({ item: result });
     });
   } catch (err) {
