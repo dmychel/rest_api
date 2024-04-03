@@ -2,14 +2,13 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const cors = require('cors');
+const cors = require("cors");
 require("dotenv").config();
 
 // use
 const app = express();
 app.use(morgan("dev"));
 app.use(cors());
-
 
 // routes
 const characterRoutes = require("./api/routes/characters");
