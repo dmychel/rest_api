@@ -4,7 +4,7 @@ const Character = require("../models/characterSchema");
 async function getAll(req, res, model) {
   try {
     const items = await model.find().then((result) => {
-      res.send({ items: result });
+      res.json(result);
     });
   } catch (err) {
     res.status(500).send({ message: err.message });
