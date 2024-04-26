@@ -31,8 +31,8 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/characters", characterRoutes);
-app.use("/locations", locationRoutes);
+app.use("/character", characterRoutes);
+app.use("/location", locationRoutes);
 
 // 404
 app.use((req, res) => {

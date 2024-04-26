@@ -4,12 +4,15 @@ const Schema = mongoose.Schema;
 const locationSchema = new Schema({
   id: {
     type: String,
+    required: true
   },
   name: {
     type: String,
+    required: true
   },
   description: {
     type: String,
+    required: true
   },
 });
 
